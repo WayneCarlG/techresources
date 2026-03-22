@@ -1,0 +1,15 @@
+{
+  "servers": {
+    "local-tools": {
+      "command": "python",
+      "args": ["-m", "src.mcp_tools.server"],
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}/src"
+      }
+    },
+    "evaluation-server": {
+      "command": "python",
+      "args": ["eval/mcp_eval_server.py"]
+    }
+  }
+}

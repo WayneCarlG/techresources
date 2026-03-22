@@ -1,0 +1,32 @@
+[
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Test: Run Agent Unit Tests"
+  },
+  {
+    "key": "ctrl+shift+e",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Eval: Run LLM-as-Judge Evaluation"
+  },
+  {
+    "key": "ctrl+shift+m",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Debug: Start MCP Host Server"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Lint: Ruff Check & Fix"
+  },
+  {
+    "key": "alt+j",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Eval: View Agent Traces"
+  },
+  {
+    "key": "ctrl+`",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  }
+]

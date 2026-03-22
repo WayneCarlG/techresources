@@ -1,0 +1,18 @@
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "agentic-engineering-from-scratch"
+version = "0.1.0"
+description = "Building agentic systems from scratch with Python and Pydantic."
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pydantic = "^2.5.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.0"
+mypy = "^1.0"
+ruff = "^0.1"

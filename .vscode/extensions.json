@@ -1,0 +1,20 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "ms-python.jupyter",
+    "charliermarsh.ruff",
+    "nuclino.codeium",
+    "usernamehw.errorlens",
+    "mechatroner.rainbow-csv",
+    "aaron-bond.better-comments",
+    "eamodio.peacock",
+    "rangav.vscode-thunder-client",
+    "wayou.vscode-todo-highlight",
+    "continue.continue",
+    "ms-toolsai.datawrangler",
+    "ms-python.python",
+    "ms-python.debugpy"
+  ],
+  "unwantedRecommendations": []
+}

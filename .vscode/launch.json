@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: MCP Host Server",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/mcp_host.py",
+      "console": "integratedTerminal",
+      "justMyCode": false,
+      "env": {
+        "MCP_DEBUG": "true",
+        "MCP_TRACE_ENABLED": "true"
+      },
+      "preLaunchTask": "build-mcp-schemas"
+    },
+    {
+      "name": "Python: Agent Evaluation",
+      "type": "python",
+      "request": "launch",
+      "program": "${workspaceFolder}/eval/run_evaluation.py",
+      "console": "integratedTerminal",
+      "args": ["--verbose", "--export-traces"],
+      "env": {
+        "TRACE_FORMAT": "json"
+      }
+    }
+  ]
+}

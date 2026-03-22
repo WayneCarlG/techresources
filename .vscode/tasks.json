@@ -1,0 +1,104 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Setup: Create .venv",
+      "type": "shell",
+      "command": "python -m venv .venv",
+      "windows": {
+        "command": "python",
+        "args": ["-m", "venv", ".venv"]
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Setup: Install dependencies",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pip", "install", "-e", ".[dev]"],
+      "dependsOn": ["Setup: Create .venv"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Test: Run Agent Unit Tests",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "pytest", "tests/", "-v", "--tb=short"],
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": ["$pytest"]
+    },
+    {
+      "label": "Eval: Run LLM-as-Judge Evaluation",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["eval/run_evaluation.py", "--export-traces", "--output=eval_results"],
+      "presentation": {
+        "reveal": "always",
+        "echo": true
+      }
+    },
+    {
+      "label": "Eval: View Agent Traces",
+      "type": "shell",
+      "command": "python",
+      "args": ["-m", "json.tool", "eval_results/traces.json"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Debug: Start MCP Host Server",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["src/mcp_host.py"],
+      "isBackground": true,
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^([^\\s].*):([0-9]+):([0-9]+):\\s*(error|warning)\\s*(.*)$",
+          "file": 1,
+          "location": 2,
+          "message": 5
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "✓ Connected",
+          "endsPattern": "mcp>"
+        }
+      }
+    },
+    {
+      "label": "Lint: Ruff Check & Fix",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "ruff", "check", "src/", "eval/", "--fix"],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Type Check: Strict Mypy",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["-m", "mypy", "src/", "--strict", "--show-traceback"],
+      "presentation": {
+        "reveal": "always"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Git ignore file
+.venv
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+/final_agent/traces.json
