@@ -16,3 +16,10 @@ Your task is to build a `BasicAgent` class that integrates the core components.
     b.  **Parse the model's output.** For this challenge, assume the model can output either a final answer or a JSON string for a tool call (e.g., `{"tool_name": "get_time", "arguments": {}}`).
     c.  If it's a tool call, execute the corresponding function from the `tool_registry`, update the history with the result, and repeat the loop.
     d.  If it's a final answer, return it.
+
+## Beyond the Code: Supplemental Learning
+
+| Resource Type | Topic | Link/Description |
+| :--- | :--- | :--- |
+| Deep Dive | Agentic Loops | [Video Title Placeholder](https://www.youtube.com/watch?v=ZAY2XLejhm8) <br> *Why this matters: This video provides a first-principles look at the core loop of agentic systems, which is essential for building your own orchestrator in plain Python.* |
+| Concept | Model Context Protocol (MCP) | [Video Title Placeholder](https://www.youtube.com/watch?v=PgMly2SUYic) <br> *Why this matters: Understanding MCP is key to designing interoperable agentic components, a core tenet of first-principles engineering.* |
